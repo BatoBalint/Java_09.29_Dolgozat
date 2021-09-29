@@ -59,4 +59,8 @@ public class Bejegyzes {
             return String.format("%s - %d - %s\nSzerkesztve: %s\n%s", szerzo, likeok, dt.format(letrejott), dt.format(szerkesztve), tartalom);
         } else return String.format("%s - %d - %s\n%s", szerzo, likeok, dt.format(letrejott), tartalom);
     }
+
+    public String toFileFormat() {
+        return String.format("%s;%s\n", this.szerzo, this.tartalom);
+    }
 }

@@ -3,6 +3,7 @@ package hu.petrik;
 import javax.swing.*;
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -18,16 +19,17 @@ public class Main {
         Bejegyzes b2 = new Bejegyzes("Jancsi", "Ma nem tudok, anya nem engedi.");
         bejegyzesLista.add(b2);
 
-        //BejegyzesBekeres();
+        BejegyzesBekeres();
         Beolvasas("bejegyzesek.txt");
         RandomLikeok();
-        //BejegyzesModositas();
+        BejegyzesModositas();
         BejegyzesekKiirasa();
-        //LegnepszerubbBejegyzes();
-        //VaneTobbLike(35);
-        //System.out.printf("Posztok 15-nel kevesebb likeal: %d", KevesebbLike(15));
+        LegnepszerubbBejegyzes();
+        VaneTobbLike(35);
+        System.out.printf("Posztok 15-nel kevesebb likeal: %d", KevesebbLike(15));
         Rendezes();
         BejegyzesekKiirasa();
+        MentesFajlba("bejegyzesek_rendezett.txt");
     }
 
     static void BejegyzesBekeres() {
@@ -125,5 +127,18 @@ public class Main {
             bejegyzesLista.set(i, legnagyobb);
             bejegyzesLista.set(jHelp, help);
         }
+    }
+
+    static void MentesFajlba(String path) {
+        try {
+            FileWriter fw = new FileWriter(path);
+            for (Bejegyzes a : bejegyzesLista) {
+                fw.write(a.toFileFormat());
+            }
+            fw.close();
+        } catch (Exception e) {
+            System.out.println(e.getCause());
+        }
+
     }
 }
