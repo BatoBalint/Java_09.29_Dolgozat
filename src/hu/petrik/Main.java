@@ -21,7 +21,8 @@ public class Main {
         //BejegyzesBekeres();
         Beolvasas("bejegyzesek.txt");
         RandomLikeok();
-        BejegyzesModositas();
+        //BejegyzesModositas();
+        BejegyzesekKiirasa();
     }
 
     static void BejegyzesBekeres() {
@@ -64,10 +65,16 @@ public class Main {
     static void BejegyzesModositas() {
         System.out.print("Melyik bejegyzést szeretné módosítani? ");
         int valasz = Integer.parseInt(sc.nextLine());
-        System.out.println(bejegyzesLista.get(valasz));
+        System.out.printf("\n%s\n", bejegyzesLista.get(valasz));
         System.out.println("Mire szeretné szerkeszteni? ");
         String szerkesztettTartalom = sc.nextLine();
         bejegyzesLista.get(valasz).setTartalom(szerkesztettTartalom);
-        System.out.println(bejegyzesLista.get(valasz));
+        System.out.printf("\n%s\n", bejegyzesLista.get(valasz));
+    }
+
+    static void BejegyzesekKiirasa() {
+        for (Bejegyzes a: bejegyzesLista) {
+            System.out.printf("\n%s\n", a);
+        }
     }
 }
