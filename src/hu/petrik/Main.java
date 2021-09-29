@@ -18,9 +18,10 @@ public class Main {
         Bejegyzes b2 = new Bejegyzes("Jancsi", "Ma nem tudok, anya nem engedi.");
         bejegyzesLista.add(b2);
 
-        BejegyzesBekeres();
+        //BejegyzesBekeres();
         Beolvasas("bejegyzesek.txt");
         RandomLikeok();
+        BejegyzesModositas();
     }
 
     static void BejegyzesBekeres() {
@@ -58,5 +59,15 @@ public class Main {
         for (int i = 0; i < bejegyzesLista.size() * 20; i++) {
             bejegyzesLista.get(rnd.nextInt(bejegyzesLista.size())).like();
         }
+    }
+
+    static void BejegyzesModositas() {
+        System.out.print("Melyik bejegyzést szeretné módosítani? ");
+        int valasz = Integer.parseInt(sc.nextLine());
+        System.out.println(bejegyzesLista.get(valasz));
+        System.out.println("Mire szeretné szerkeszteni? ");
+        String szerkesztettTartalom = sc.nextLine();
+        bejegyzesLista.get(valasz).setTartalom(szerkesztettTartalom);
+        System.out.println(bejegyzesLista.get(valasz));
     }
 }

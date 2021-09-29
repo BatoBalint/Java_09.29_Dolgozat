@@ -49,12 +49,12 @@ public class Bejegyzes {
         this.tartalom = tartalom;
         this.likeok = 0;
         this.letrejott = LocalDateTime.now();
-        this.szerkesztve = LocalDateTime.now();
+        this.szerkesztve = this.letrejott;
     }
 
     @Override
     public String toString() {
-        DateTimeFormatter dt = DateTimeFormatter.ofPattern("yyyy-MM-dd - HH-mm-ss");
+        DateTimeFormatter dt = DateTimeFormatter.ofPattern("yyyy/MM/dd - HH:mm:ss");
         if (szerkesztve != letrejott) {
             return String.format("%s - %d - %s\nSzerkesztve: %s\n%s", szerzo, likeok, dt.format(letrejott), dt.format(szerkesztve), tartalom);
         } else return String.format("%s - %d - %s\n%s", szerzo, likeok, dt.format(letrejott), tartalom);
