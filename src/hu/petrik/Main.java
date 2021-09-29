@@ -5,6 +5,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
@@ -19,6 +20,7 @@ public class Main {
 
         BejegyzesBekeres();
         Beolvasas("bejegyzesek.txt");
+        RandomLikeok();
     }
 
     static void BejegyzesBekeres() {
@@ -49,6 +51,12 @@ public class Main {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
+    }
 
+    static void RandomLikeok() {
+        Random rnd = new Random();
+        for (int i = 0; i < bejegyzesLista.size() * 20; i++) {
+            bejegyzesLista.get(rnd.nextInt(bejegyzesLista.size())).like();
+        }
     }
 }
