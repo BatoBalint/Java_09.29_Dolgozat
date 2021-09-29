@@ -23,9 +23,11 @@ public class Main {
         RandomLikeok();
         //BejegyzesModositas();
         BejegyzesekKiirasa();
-        LegnepszerubbBejegyzes();
-        VaneTobbLike(35);
-        System.out.printf("Posztok 15-nel kevesebb likeal: %d", KevesebbLike(15));
+        //LegnepszerubbBejegyzes();
+        //VaneTobbLike(35);
+        //System.out.printf("Posztok 15-nel kevesebb likeal: %d", KevesebbLike(15));
+        Rendezes();
+        BejegyzesekKiirasa();
     }
 
     static void BejegyzesBekeres() {
@@ -104,5 +106,24 @@ public class Main {
         int db = 0;
         for (Bejegyzes a : bejegyzesLista) if (a.getLikeok() < like) db++;
         return db;
+    }
+
+    static void Rendezes() {
+        Bejegyzes legnagyobb;
+        Bejegyzes help;
+        int jHelp;
+        for (int i = 0; i < bejegyzesLista.size(); i++) {
+            legnagyobb = bejegyzesLista.get(i);
+            jHelp = i;
+            for (int j = i; j < bejegyzesLista.size(); j++) {
+                if (bejegyzesLista.get(j).getLikeok() >= legnagyobb.getLikeok()) {
+                    legnagyobb = bejegyzesLista.get(j);
+                    jHelp = j;
+                }
+            }
+            help = bejegyzesLista.get(i);
+            bejegyzesLista.set(i, legnagyobb);
+            bejegyzesLista.set(jHelp, help);
+        }
     }
 }
