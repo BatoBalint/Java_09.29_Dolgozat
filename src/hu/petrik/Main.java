@@ -23,6 +23,7 @@ public class Main {
         RandomLikeok();
         //BejegyzesModositas();
         BejegyzesekKiirasa();
+        LegnepszerubbBejegyzes();
     }
 
     static void BejegyzesBekeres() {
@@ -76,5 +77,13 @@ public class Main {
         for (Bejegyzes a: bejegyzesLista) {
             System.out.printf("\n%s\n", a);
         }
+    }
+
+    static void LegnepszerubbBejegyzes() {
+        int index = 0;
+        for (int i = 1; i < bejegyzesLista.size(); i++) {
+            if (bejegyzesLista.get(i).getLikeok() > bejegyzesLista.get(index).getLikeok()) index = i;
+        }
+        System.out.printf("A legnépszerübb bejegyzésen a likeok száma: %s", bejegyzesLista.get(index).getLikeok());
     }
 }
