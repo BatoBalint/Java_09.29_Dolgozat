@@ -24,6 +24,7 @@ public class Main {
         //BejegyzesModositas();
         BejegyzesekKiirasa();
         LegnepszerubbBejegyzes();
+        VaneTobbLike(35);
     }
 
     static void BejegyzesBekeres() {
@@ -84,6 +85,17 @@ public class Main {
         for (int i = 1; i < bejegyzesLista.size(); i++) {
             if (bejegyzesLista.get(i).getLikeok() > bejegyzesLista.get(index).getLikeok()) index = i;
         }
-        System.out.printf("A legnépszerübb bejegyzésen a likeok száma: %s", bejegyzesLista.get(index).getLikeok());
+        System.out.printf("\nA legnépszerübb bejegyzésen a likeok száma: %s\n", bejegyzesLista.get(index).getLikeok());
+    }
+
+    static void VaneTobbLike(int like) {
+        boolean vanAnnyiLike = false;
+        int i = 0;
+        while (!vanAnnyiLike && i < bejegyzesLista.size()) {
+            if (bejegyzesLista.get(i).getLikeok() > like) vanAnnyiLike = true;
+            i++;
+        }
+        if (vanAnnyiLike) System.out.printf("Van olyan bejegyzés amin több mint %d like van", like);
+        else System.out.printf("Nincs olyan bejegyzés amin több mint %d like van", like);
     }
 }
