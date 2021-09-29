@@ -25,6 +25,7 @@ public class Main {
         BejegyzesekKiirasa();
         LegnepszerubbBejegyzes();
         VaneTobbLike(35);
+        System.out.printf("Posztok 15-nel kevesebb likeal: %d", KevesebbLike(15));
     }
 
     static void BejegyzesBekeres() {
@@ -96,6 +97,12 @@ public class Main {
             i++;
         }
         if (vanAnnyiLike) System.out.printf("Van olyan bejegyzés amin több mint %d like van", like);
-        else System.out.printf("Nincs olyan bejegyzés amin több mint %d like van", like);
+        else System.out.printf("Nincs olyan bejegyzés amin több mint %d like van\n", like);
+    }
+
+    static int KevesebbLike(int like) {
+        int db = 0;
+        for (Bejegyzes a : bejegyzesLista) if (a.getLikeok() < like) db++;
+        return db;
     }
 }
